@@ -1,0 +1,24 @@
+#docker compose for the redisstudy project
+
+version: '3.7'
+
+networks:
+    back-tier-net:
+        driver: bridge
+
+        
+services:
+  
+    #####################################################################################                 
+    redis:
+    #####################################################################################                 
+        container_name: redisstudy-redis
+        image: ma-redis
+        environment:
+            - REDIS_PASSWORD=apfel
+        ports:
+            - 6379:6379
+        networks: 
+            - back-tier-net
+            
+        
